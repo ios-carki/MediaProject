@@ -33,6 +33,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var rightBarButtonItem: UIBarButtonItem!
     
     var tvDataList: [tvData] = []
+    var isPaging: Bool = false // 현재 페이징 중인지 체크하는 flag
+    var hasNextPage: Bool = false // 마지막 페이지 인지 체크 하는 flag
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,12 +93,32 @@ class ViewController: UIViewController {
      
 
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
+        let nav = UINavigationController(rootViewController: vc)
+        
+        let url = URL(string: "https://image.tmdb.org/t/p/w500/\(tvDataList[indexPath.item].image)")
+        
+//        vc.posterImageView.kf.setImage(with: UserDefaults.standard.string(forKey: "image"))
+        vc.mediaNameLabel?.text = UserDefaults.standard.string(forKey: "title")
+        
+        
+        self.navigationController?.pushViewController(vc, animated: true) //push 화면전환
+        
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 
-        return tvDataList.count
-    }
-
+        if section == 0 {
+            return tvDataList.count
+        } else if section == 1 && isPaging && hasNextPage {
+            return 1
+        }
         
+        return 0
+    }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
@@ -108,11 +130,13 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         let url = URL(string: "https://image.tmdb.org/t/p/w500/\(tvDataList[indexPath.item].image)")
         
         cell.mainTitleLabel.text = tvDataList[indexPath.item].title
+        UserDefaults.standard.set(tvDataList[indexPath.item].title, forKey: "title")
+        
         cell.mainImageView.kf.setImage(with: url)
+        UserDefaults.standard.set(url, forKey: "image")
+        
         cell.starRatePointLabel.text = tvDataList[indexPath.item].votecount
         cell.mainActorLabel.text = tvDataList[indexPath.item].overview
-        print(tvDataList)
-        
         return cell
 
     }

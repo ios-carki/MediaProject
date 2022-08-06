@@ -11,6 +11,8 @@
 		C31AE9ED289C1CD100C0CE64 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = C31AE9EC289C1CD100C0CE64 /* Alamofire */; };
 		C31AE9F0289C1CDB00C0CE64 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = C31AE9EF289C1CDB00C0CE64 /* SwiftyJSON */; };
 		C31AE9F3289C1CE400C0CE64 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = C31AE9F2289C1CE400C0CE64 /* Kingfisher */; };
+		C357ED67289E74F600F4BD8F /* DetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C357ED66289E74F600F4BD8F /* DetailsTableViewCell.swift */; };
+		C357ED69289E758800F4BD8F /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C357ED68289E758800F4BD8F /* DetailsViewController.swift */; };
 		C3DCBA9A289BF3F700989A4E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DCBA99289BF3F700989A4E /* AppDelegate.swift */; };
 		C3DCBA9C289BF3F700989A4E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DCBA9B289BF3F700989A4E /* SceneDelegate.swift */; };
 		C3DCBA9E289BF3F700989A4E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DCBA9D289BF3F700989A4E /* ViewController.swift */; };
@@ -25,6 +27,8 @@
 
 /* Begin PBXFileReference section */
 		C31AE9E9289C1CA100C0CE64 /* TVDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVDetails.swift; sourceTree = "<group>"; };
+		C357ED66289E74F600F4BD8F /* DetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsTableViewCell.swift; sourceTree = "<group>"; };
+		C357ED68289E758800F4BD8F /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		C3DCBA96289BF3F700989A4E /* MediaProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediaProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3DCBA99289BF3F700989A4E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3DCBA9B289BF3F700989A4E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +57,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C357ED65289E6E7E00F4BD8F /* MediaDetails */ = {
+			isa = PBXGroup;
+			children = (
+				C357ED66289E74F600F4BD8F /* DetailsTableViewCell.swift */,
+				C357ED68289E758800F4BD8F /* DetailsViewController.swift */,
+			);
+			path = MediaDetails;
+			sourceTree = "<group>";
+		};
 		C3DCBA8D289BF3F700989A4E = {
 			isa = PBXGroup;
 			children = (
@@ -73,6 +86,7 @@
 		C3DCBA98289BF3F700989A4E /* MediaProject */ = {
 			isa = PBXGroup;
 			children = (
+				C357ED65289E6E7E00F4BD8F /* MediaDetails */,
 				C3DCBAB6289BF51F00989A4E /* Key */,
 				C3DCBAAD289BF48A00989A4E /* MainView */,
 				C3DCBA99289BF3F700989A4E /* AppDelegate.swift */,
@@ -190,9 +204,11 @@
 				C31AE9EA289C1CA100C0CE64 /* TVDetails.swift in Sources */,
 				C3DCBA9E289BF3F700989A4E /* ViewController.swift in Sources */,
 				C3DCBA9A289BF3F700989A4E /* AppDelegate.swift in Sources */,
+				C357ED69289E758800F4BD8F /* DetailsViewController.swift in Sources */,
 				C3DCBA9C289BF3F700989A4E /* SceneDelegate.swift in Sources */,
 				C3DCBAB8289BF52F00989A4E /* APIKey.swift in Sources */,
 				C3DCBAB0289BF4B500989A4E /* MainCollectionViewCell.swift in Sources */,
+				C357ED67289E74F600F4BD8F /* DetailsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
