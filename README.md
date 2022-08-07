@@ -2,7 +2,7 @@
 
 ## Bug Fix in DetailsView (2022.08.08 added)
 
-##### Bug Fix: cell's height changes symptom resolution / data push: Userdefaults & data push
+##### Bug Fix: cell's height changing symptom resolution / data push: Userdefaults & data push
 https://user-images.githubusercontent.com/44957712/183301671-1b44f74d-27d5-4b11-ac2b-54f9f46401b9.mov
 
 ## DetailsView (2022.08.07 added)
