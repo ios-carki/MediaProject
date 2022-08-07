@@ -1,5 +1,9 @@
 # MediaProject
 
+## Bug Fix in DetailsView (2022.08.08 added)
+
+https://user-images.githubusercontent.com/44957712/183301671-1b44f74d-27d5-4b11-ac2b-54f9f46401b9.mov
+
 ## DetailsView (2022.08.07 added)
 
 <img width="584" alt="스크린샷 2022-08-07 오후 7 11 38" src="https://user-images.githubusercontent.com/44957712/183286014-4721545a-ad5d-4402-bc80-bcbad7144e2c.png">
