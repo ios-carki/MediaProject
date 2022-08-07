@@ -20,6 +20,8 @@ class DetailsTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        actorJobLael.font = UIFont.systemFont(ofSize: 12)
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

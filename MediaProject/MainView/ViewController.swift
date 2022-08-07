@@ -13,15 +13,19 @@ import SwiftyJSON
 
 struct tvData {
     var image: String
+    var backImage: String
     var votecount: String
     var title: String
     var overview: String
+    var id: Int
     
-    init(image: String, votecount: String, title: String, overview: String) {
+    init(image: String, backImage: String, votecount: String, title: String, overview: String, id: Int) {
         self.image = image
+        self.backImage = backImage
         self.votecount = votecount
         self.title = title
         self.overview = overview
+        self.id = id
     }
 }
 
@@ -73,7 +77,7 @@ class ViewController: UIViewController {
                 print("JSON: \(json)")
                 
                 for item in json["results"].arrayValue {
-                    let newData = tvData(image: item["poster_path"].stringValue, votecount: item["vote_count"].stringValue, title: item["name"].stringValue, overview: item["overview"].stringValue)
+                    let newData = tvData(image: item["poster_path"].stringValue, backImage: item["backdrop_path"].stringValue, votecount: item["vote_count"].stringValue, title: item["name"].stringValue, overview: item["overview"].stringValue, id: item["id"].intValue)
 
                     tvDataList.append(newData)
                 }
@@ -95,17 +99,24 @@ class ViewController: UIViewController {
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
         let nav = UINavigationController(rootViewController: vc)
         
         let url = URL(string: "https://image.tmdb.org/t/p/w500/\(tvDataList[indexPath.item].image)")
         
-//        vc.posterImageView.kf.setImage(with: UserDefaults.standard.string(forKey: "image"))
-        vc.mediaNameLabel?.text = UserDefaults.standard.string(forKey: "title")
+        let urlBackGroundPoster = URL(string: "https://image.tmdb.org/t/p/w500/\(tvDataList[indexPath.item].backImage)")
+        var backImageUD = UserDefaults.standard.set(tvDataList[indexPath.item].backImage, forKey: "backImage")
+//        vc.mediaNameLabel?.text = UserDefaults.standard.string(forKey: "title")
         
         
+        UserDefaults.standard.set(tvDataList[indexPath.item].id, forKey: "id")//id 설정
+        
+//        print(UserDefaults.standard.integer(forKey: "id")) //id 데이터 잘 넘어갔는지 확인
         self.navigationController?.pushViewController(vc, animated: true) //push 화면전환
+        
+        
         
     }
     
@@ -127,13 +138,14 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         cell.layer.cornerRadius = 10
 //        viewShadow(viewName: cell)
         
-        let url = URL(string: "https://image.tmdb.org/t/p/w500/\(tvDataList[indexPath.item].image)")
+        let urlPoster = URL(string: "https://image.tmdb.org/t/p/w500/\(tvDataList[indexPath.item].image)")
+        
         
         cell.mainTitleLabel.text = tvDataList[indexPath.item].title
         UserDefaults.standard.set(tvDataList[indexPath.item].title, forKey: "title")
         
-        cell.mainImageView.kf.setImage(with: url)
-        UserDefaults.standard.set(url, forKey: "image")
+        cell.mainImageView.kf.setImage(with: urlPoster)
+        UserDefaults.standard.set(tvDataList[indexPath.item].image, forKey: "image")
         
         cell.starRatePointLabel.text = tvDataList[indexPath.item].votecount
         cell.mainActorLabel.text = tvDataList[indexPath.item].overview
