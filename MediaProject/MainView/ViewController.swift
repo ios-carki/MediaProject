@@ -106,9 +106,15 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         
         let url = URL(string: "https://image.tmdb.org/t/p/w500/\(tvDataList[indexPath.item].image)")
         
+        //값전달(title, posterImage)
+        vc.receivePosterData = "https://image.tmdb.org/t/p/w500/\(tvDataList[indexPath.item].image)"
+        vc.receiveTitleData = tvDataList[indexPath.item].title
+        
         let urlBackGroundPoster = URL(string: "https://image.tmdb.org/t/p/w500/\(tvDataList[indexPath.item].backImage)")
         var backImageUD = UserDefaults.standard.set(tvDataList[indexPath.item].backImage, forKey: "backImage")
+//        print(UserDefaults.standard.string(forKey: "backImage"))
 //        vc.mediaNameLabel?.text = UserDefaults.standard.string(forKey: "title")
+        
         
         
         UserDefaults.standard.set(tvDataList[indexPath.item].id, forKey: "id")//id 설정
@@ -142,10 +148,11 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         
         
         cell.mainTitleLabel.text = tvDataList[indexPath.item].title
-        UserDefaults.standard.set(tvDataList[indexPath.item].title, forKey: "title")
+//        UserDefaults.standard.set(tvDataList[indexPath.item].title, forKey: "title")
         
         cell.mainImageView.kf.setImage(with: urlPoster)
         UserDefaults.standard.set(tvDataList[indexPath.item].image, forKey: "image")
+        print(UserDefaults.standard.string(forKey: "image"))
         
         cell.starRatePointLabel.text = tvDataList[indexPath.item].votecount
         cell.mainActorLabel.text = tvDataList[indexPath.item].overview

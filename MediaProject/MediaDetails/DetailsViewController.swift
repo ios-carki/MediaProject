@@ -47,20 +47,26 @@ class DetailsViewController: UIViewController {
     
     var mediaIDList: [idData] = []
     var castTableData: [castData] = []
-    
+    var receivePosterData: String?
+    var receiveTitleData: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        var imageURL = URL(string:"https://image.tmdb.org/t/p/w500/\(UserDefaults.standard.string(forKey: "image")!)")
+        var imageURL = URL(string: receivePosterData!)
+        
+//        var imageURL = URL(string:"https://image.tmdb.org/t/p/w500/\(UserDefaults.standard.string(forKey: "image")!)")
+        
         var backImageURL = URL(string:"https://image.tmdb.org/t/p/w500/\(UserDefaults.standard.string(forKey: "backImage")!)")
         
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.rowHeight = 80
         
-        
-        mediaNameLabel.text = UserDefaults.standard.string(forKey: "title")
+        mediaNameLabel.text = receiveTitleData //값전달
         mediaNameLabel.textColor = .white
         mediaNameLabel.font = UIFont.boldSystemFont(ofSize: 12)
+        
+        //유저디폴트
         backgroundImageView.kf.setImage(with: backImageURL)
         backgroundImageView.contentMode = .scaleToFill
         imageTintBackGround.image = UIImage(named: "background")

@@ -86,8 +86,8 @@
 		C3DCBA98289BF3F700989A4E /* MediaProject */ = {
 			isa = PBXGroup;
 			children = (
-				C357ED65289E6E7E00F4BD8F /* MediaDetails */,
 				C3DCBAB6289BF51F00989A4E /* Key */,
+				C357ED65289E6E7E00F4BD8F /* MediaDetails */,
 				C3DCBAAD289BF48A00989A4E /* MainView */,
 				C3DCBA99289BF3F700989A4E /* AppDelegate.swift */,
 				C3DCBA9B289BF3F700989A4E /* SceneDelegate.swift */,
