@@ -9,6 +9,8 @@ import UIKit
 
 class MainCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var youtubeLinkButton: UIButton!
+    
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var starRateTextLabel: UILabel!
     @IBOutlet weak var starRatePointLabel: UILabel!
@@ -30,6 +32,8 @@ class MainCollectionViewCell: UICollectionViewCell {
 
         let color = UIColor(red: r / 255, green: g / 255, blue: b / 255, alpha: 1)
         
+        
+        
         starRateTextLabel.text = "평점"
         starRateTextLabel.textColor = .white
         starRateTextLabel.textAlignment = .center
@@ -48,7 +52,11 @@ class MainCollectionViewCell: UICollectionViewCell {
         rightImage.image = UIImage(systemName: "chevron.right")
         rightImage.tintColor = .lightGray
         
-        
+        youtubeLinkButton.setImage(UIImage(systemName: "paperclip"), for: .normal)
+        youtubeLinkButton.tintColor = .black
+        youtubeLinkButton.layer.borderWidth = 1
+        youtubeLinkButton.backgroundColor = .white
+        youtubeLinkButton.layer.cornerRadius = 20
     }
     
     

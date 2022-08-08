@@ -89,6 +89,18 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sHg-DJ-Eo4">
+                        <rect key="frame" x="328" y="20" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="YGX-Xe-FK2"/>
+                            <constraint firstAttribute="width" constant="40" id="dp0-gc-CA6"/>
+                        </constraints>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain"/>
+                        <connections>
+                            <action selector="linkButtonClicked:" destination="-1" eventType="touchUpInside" id="XaH-k4-WdP"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
@@ -103,6 +115,7 @@
                 <constraint firstItem="wuE-UN-jjS" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="Bt0-2S-urA"/>
                 <constraint firstAttribute="trailing" secondItem="G0d-vo-erT" secondAttribute="trailing" constant="20" id="D4L-CA-UCM"/>
                 <constraint firstItem="v3U-ye-NlD" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="E49-12-aWO"/>
+                <constraint firstItem="sHg-DJ-Eo4" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="20" id="FtL-aI-1Fd"/>
                 <constraint firstAttribute="trailing" secondItem="mc0-gS-k0y" secondAttribute="trailing" constant="20" id="KDT-Oe-n0M"/>
                 <constraint firstItem="G0d-vo-erT" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="Tiy-FB-8Za"/>
                 <constraint firstItem="v3U-ye-NlD" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="aPO-PY-VsU"/>
@@ -114,6 +127,7 @@
                 <constraint firstAttribute="trailing" secondItem="cKV-w8-Ar0" secondAttribute="trailing" constant="20" id="tPf-rp-Seq"/>
                 <constraint firstAttribute="bottom" secondItem="mc0-gS-k0y" secondAttribute="bottom" constant="12" id="x9k-LG-lAU"/>
                 <constraint firstAttribute="trailing" secondItem="v3U-ye-NlD" secondAttribute="trailing" id="yRc-Dz-pre"/>
+                <constraint firstAttribute="trailing" secondItem="sHg-DJ-Eo4" secondAttribute="trailing" constant="20" id="zFf-rJ-i3j"/>
             </constraints>
             <size key="customSize" width="388" height="532"/>
             <connections>
@@ -125,6 +139,7 @@
                 <outlet property="rightImage" destination="eUc-bM-WV4" id="SDO-hf-j0O"/>
                 <outlet property="starRatePointLabel" destination="xOz-YD-ESb" id="w1s-tV-hC4"/>
                 <outlet property="starRateTextLabel" destination="khA-tC-9d8" id="fYx-Nr-Dh3"/>
+                <outlet property="youtubeLinkButton" destination="sHg-DJ-Eo4" id="9Jc-ex-IMj"/>
             </connections>
             <point key="canvasLocation" x="-46.376811594202906" y="121.20535714285714"/>
         </collectionViewCell>

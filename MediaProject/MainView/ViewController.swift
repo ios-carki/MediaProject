@@ -29,6 +29,15 @@ struct tvData {
     }
 }
 
+struct youtubeData {
+    var youtubeKEY: String
+    
+    init(youtubeKEY: String) {
+        self.youtubeKEY = youtubeKEY
+        
+    }
+}
+
 class ViewController: UIViewController {
 
     @IBOutlet weak var mainCollectionView: UICollectionView!
@@ -37,12 +46,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var rightBarButtonItem: UIBarButtonItem!
     
     var tvDataList: [tvData] = []
+    var youtubeList: [youtubeData] = []
     var isPaging: Bool = false // 현재 페이징 중인지 체크하는 flag
     var hasNextPage: Bool = false // 마지막 페이지 인지 체크 하는 flag
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         mainCollectionView.delegate = self
         mainCollectionView.dataSource = self
@@ -91,6 +100,45 @@ class ViewController: UIViewController {
             
         }
     }
+    
+    
+    @IBAction func linkButtonClicked(_ sender: UIButton) {
+        
+        let url = "https://api.themoviedb.org/3/tv/\(UserDefaults.standard.integer(forKey: "id"))/videos?api_key=\(APIKey.TMDB)"
+
+        //validate - 유효성 검사
+        AF.request(url, method: .get).validate(statusCode: 200..<400).responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                print("=================유튜브 제이슨=================")
+                print("JSON: \(json)")
+                
+                for item in json["results"][0].arrayValue {
+                    //이거
+                    print(json["results"][0].arrayValue)
+                    let newYoutubeData = youtubeData(youtubeKEY: item["key"].stringValue)
+                    
+                    self.youtubeList.append(newYoutubeData)
+                }
+                self.mainCollectionView.reloadData()
+
+
+            case .failure(let error):
+                print(error)
+            }
+        }
+        
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "WebViewController") as! WebViewController
+        let nav = UINavigationController(rootViewController: vc)
+
+        vc.destinationURL = "https://api.themoviedb.org/3/tv/\(UserDefaults.standard.integer(forKey: "id"))/videos?api_key=\(APIKey.TMDB)"
+        
+        self.navigationController?.pushViewController(vc, animated: true) //push 화면전환
+        
+    }
+    
 
 }
 
@@ -118,8 +166,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         
         
         UserDefaults.standard.set(tvDataList[indexPath.item].id, forKey: "id")//id 설정
-        
-//        print(UserDefaults.standard.integer(forKey: "id")) //id 데이터 잘 넘어갔는지 확인
+
         self.navigationController?.pushViewController(vc, animated: true) //push 화면전환
         
         
@@ -152,7 +199,10 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         
         cell.mainImageView.kf.setImage(with: urlPoster)
         UserDefaults.standard.set(tvDataList[indexPath.item].image, forKey: "image")
-        print(UserDefaults.standard.string(forKey: "image"))
+        
+        print(youtubeList)
+//        UserDefaults.standard.set(youtubeList[indexPath.item].youtubeKEY, forKey: "youtubeKEY")
+        
         
         cell.starRatePointLabel.text = tvDataList[indexPath.item].votecount
         cell.mainActorLabel.text = tvDataList[indexPath.item].overview
