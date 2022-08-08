@@ -58,9 +58,47 @@ class ViewController: UIViewController {
         let nibName = UINib(nibName: "MainCollectionViewCell", bundle: nil)
         mainCollectionView.register(nibName, forCellWithReuseIdentifier: "MainCollectionViewCell")
 
+        searchBase()
+//        print("데이터 추가된거 확인")
+//        print(tvDataList)
+//        print(youtubeList)
         layoutSetting()
-        request()
+//        request()
     }
+    
+    //220808배운내용 추가
+    func searchBase() {
+        TMDBAPIManager.shared.callRequest(type: .base) { json in
+            print(json)
+            
+            for item in json["results"].arrayValue {
+                let newData = tvData(image: item["poster_path"].stringValue, backImage: item["backdrop_path"].stringValue, votecount: item["vote_count"].stringValue, title: item["name"].stringValue, overview: item["overview"].stringValue, id: item["id"].intValue)
+
+                self.tvDataList.append(newData)
+            }
+            self.searchVideo()
+        }
+    }
+
+    func searchVideo() {
+        tvID(id: UserDefaults.standard.integer(forKey: "id"))
+        TMDBAPIManager.shared.callRequest(type: .video) { json in
+            print(json)
+            
+            for item in json["results"][0].arrayValue {
+                //이거
+                print(json["results"][0].arrayValue)
+                let newYoutubeData = youtubeData(youtubeKEY: item["key"].stringValue)
+                
+                self.youtubeList.append(newYoutubeData)
+            }
+            self.mainCollectionView.reloadData()
+
+        }
+    }
+    
+    
+    //220808
     
     func layoutSetting() {
             let layout = UICollectionViewFlowLayout()
@@ -74,60 +112,60 @@ class ViewController: UIViewController {
             mainCollectionView.collectionViewLayout = layout
         }
     
-    func request() {
-        let url = "https://api.themoviedb.org/3/trending/tv/week?api_key=\(APIKey.TMDB)"
-//        let imageurl = URL(string: "https://image.tmdb.org/t/p/w500/"+dataList[indexPath.item].posterImage)
-        
-        //validate - 유효성 검사
-        AF.request(url, method: .get).validate(statusCode: 200..<400).responseJSON { [self]response in
-            switch response.result {
-            case .success(let value):
-                let json = JSON(value)
-                print("JSON: \(json)")
-                
-                for item in json["results"].arrayValue {
-                    let newData = tvData(image: item["poster_path"].stringValue, backImage: item["backdrop_path"].stringValue, votecount: item["vote_count"].stringValue, title: item["name"].stringValue, overview: item["overview"].stringValue, id: item["id"].intValue)
-
-                    tvDataList.append(newData)
-                }
-                
-
-            case .failure(let error):
-                print(error)
-            }
-            mainCollectionView.reloadData()
-            
-            
-        }
-    }
+//    func request() {
+//        let url = "https://api.themoviedb.org/3/trending/tv/week?api_key=\(APIKey.TMDB)"
+////        let imageurl = URL(string: "https://image.tmdb.org/t/p/w500/"+dataList[indexPath.item].posterImage)
+//
+//        //validate - 유효성 검사
+//        AF.request(url, method: .get).validate(statusCode: 200..<400).responseJSON { [self]response in
+//            switch response.result {
+//            case .success(let value):
+//                let json = JSON(value)
+//                print("JSON: \(json)")
+//
+//                for item in json["results"].arrayValue {
+//                    let newData = tvData(image: item["poster_path"].stringValue, backImage: item["backdrop_path"].stringValue, votecount: item["vote_count"].stringValue, title: item["name"].stringValue, overview: item["overview"].stringValue, id: item["id"].intValue)
+//
+//                    tvDataList.append(newData)
+//                }
+//
+//
+//            case .failure(let error):
+//                print(error)
+//            }
+//            mainCollectionView.reloadData()
+//
+//
+//        }
+//    }
     
     
     @IBAction func linkButtonClicked(_ sender: UIButton) {
         
-        let url = "https://api.themoviedb.org/3/tv/\(UserDefaults.standard.integer(forKey: "id"))/videos?api_key=\(APIKey.TMDB)"
-
-        //validate - 유효성 검사
-        AF.request(url, method: .get).validate(statusCode: 200..<400).responseJSON { response in
-            switch response.result {
-            case .success(let value):
-                let json = JSON(value)
-                print("=================유튜브 제이슨=================")
-                print("JSON: \(json)")
-                
-                for item in json["results"][0].arrayValue {
-                    //이거
-                    print(json["results"][0].arrayValue)
-                    let newYoutubeData = youtubeData(youtubeKEY: item["key"].stringValue)
-                    
-                    self.youtubeList.append(newYoutubeData)
-                }
-                self.mainCollectionView.reloadData()
-
-
-            case .failure(let error):
-                print(error)
-            }
-        }
+//        let url = "https://api.themoviedb.org/3/tv/\(UserDefaults.standard.integer(forKey: "id"))/videos?api_key=\(APIKey.TMDB)"
+//
+//        //validate - 유효성 검사
+//        AF.request(url, method: .get).validate(statusCode: 200..<400).responseJSON { response in
+//            switch response.result {
+//            case .success(let value):
+//                let json = JSON(value)
+//                print("=================유튜브 제이슨=================")
+//                print("JSON: \(json)")
+//                
+//                for item in json["results"][0].arrayValue {
+//                    //이거
+//                    print(json["results"][0].arrayValue)
+//                    let newYoutubeData = youtubeData(youtubeKEY: item["key"].stringValue)
+//                    
+//                    self.youtubeList.append(newYoutubeData)
+//                }
+//                self.mainCollectionView.reloadData()
+//
+//
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
         
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "WebViewController") as! WebViewController
@@ -200,8 +238,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         cell.mainImageView.kf.setImage(with: urlPoster)
         UserDefaults.standard.set(tvDataList[indexPath.item].image, forKey: "image")
         
-        print(youtubeList)
-//        UserDefaults.standard.set(youtubeList[indexPath.item].youtubeKEY, forKey: "youtubeKEY")
+        UserDefaults.standard.set(youtubeList[indexPath.item].youtubeKEY, forKey: "youtubeKEY")
         
         
         cell.starRatePointLabel.text = tvDataList[indexPath.item].votecount

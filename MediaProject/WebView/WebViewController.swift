@@ -15,12 +15,12 @@ class WebViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var webView: WKWebView!
     
-    var destinationURL: String? = "https://www.youtube.com/watch?v=\(UserDefaults.standard.string(forKey: "youtubeKEY"))"
+    var destinationURL: String = "https://www.youtube.com/watch?v=\(UserDefaults.standard.string(forKey: "youtubeKEY"))"
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        openWebPage(url: destinationURL!)
+        openWebPage(url: destinationURL)
         
     }
     

@@ -14,6 +14,9 @@
 		C357ED67289E74F600F4BD8F /* DetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C357ED66289E74F600F4BD8F /* DetailsTableViewCell.swift */; };
 		C357ED69289E758800F4BD8F /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C357ED68289E758800F4BD8F /* DetailsViewController.swift */; };
 		C39848C928A11A9B00E3F094 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39848C828A11A9B00E3F094 /* WebViewController.swift */; };
+		C39848CD28A192CA00E3F094 /* TMDBAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39848CC28A192CA00E3F094 /* TMDBAPIManager.swift */; };
+		C39848CF28A1942300E3F094 /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39848CE28A1942300E3F094 /* URL+Extension.swift */; };
+		C39848D128A1949E00E3F094 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39848D028A1949E00E3F094 /* Endpoint.swift */; };
 		C3DCBA9A289BF3F700989A4E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DCBA99289BF3F700989A4E /* AppDelegate.swift */; };
 		C3DCBA9C289BF3F700989A4E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DCBA9B289BF3F700989A4E /* SceneDelegate.swift */; };
 		C3DCBA9E289BF3F700989A4E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DCBA9D289BF3F700989A4E /* ViewController.swift */; };
@@ -31,6 +34,9 @@
 		C357ED66289E74F600F4BD8F /* DetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsTableViewCell.swift; sourceTree = "<group>"; };
 		C357ED68289E758800F4BD8F /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		C39848C828A11A9B00E3F094 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		C39848CC28A192CA00E3F094 /* TMDBAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBAPIManager.swift; sourceTree = "<group>"; };
+		C39848CE28A1942300E3F094 /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
+		C39848D028A1949E00E3F094 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		C3DCBA96289BF3F700989A4E /* MediaProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediaProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3DCBA99289BF3F700989A4E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3DCBA9B289BF3F700989A4E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +82,16 @@
 			path = WebView;
 			sourceTree = "<group>";
 		};
+		C39848CB28A192A400E3F094 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				C39848CC28A192CA00E3F094 /* TMDBAPIManager.swift */,
+				C39848CE28A1942300E3F094 /* URL+Extension.swift */,
+				C39848D028A1949E00E3F094 /* Endpoint.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		C3DCBA8D289BF3F700989A4E = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +112,7 @@
 		C3DCBA98289BF3F700989A4E /* MediaProject */ = {
 			isa = PBXGroup;
 			children = (
+				C39848CB28A192A400E3F094 /* Network */,
 				C39848C728A11A3900E3F094 /* WebView */,
 				C3DCBAB6289BF51F00989A4E /* Key */,
 				C357ED65289E6E7E00F4BD8F /* MediaDetails */,
@@ -215,11 +232,14 @@
 				C31AE9EA289C1CA100C0CE64 /* TVDetails.swift in Sources */,
 				C39848C928A11A9B00E3F094 /* WebViewController.swift in Sources */,
 				C3DCBA9E289BF3F700989A4E /* ViewController.swift in Sources */,
+				C39848CF28A1942300E3F094 /* URL+Extension.swift in Sources */,
+				C39848CD28A192CA00E3F094 /* TMDBAPIManager.swift in Sources */,
 				C3DCBA9A289BF3F700989A4E /* AppDelegate.swift in Sources */,
 				C357ED69289E758800F4BD8F /* DetailsViewController.swift in Sources */,
 				C3DCBA9C289BF3F700989A4E /* SceneDelegate.swift in Sources */,
 				C3DCBAB8289BF52F00989A4E /* APIKey.swift in Sources */,
 				C3DCBAB0289BF4B500989A4E /* MainCollectionViewCell.swift in Sources */,
+				C39848D128A1949E00E3F094 /* Endpoint.swift in Sources */,
 				C357ED67289E74F600F4BD8F /* DetailsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
