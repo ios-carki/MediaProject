@@ -46,7 +46,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var rightBarButtonItem: UIBarButtonItem!
     
     var tvDataList: [tvData] = []
-    var youtubeList: [youtubeData] = []
+    var youtubeList: [String] = []
     var isPaging: Bool = false // 현재 페이징 중인지 체크하는 flag
     var hasNextPage: Bool = false // 마지막 페이지 인지 체크 하는 flag
     
@@ -55,6 +55,7 @@ class ViewController: UIViewController {
         
         mainCollectionView.delegate = self
         mainCollectionView.dataSource = self
+        
         let nibName = UINib(nibName: "MainCollectionViewCell", bundle: nil)
         mainCollectionView.register(nibName, forCellWithReuseIdentifier: "MainCollectionViewCell")
 
@@ -88,9 +89,7 @@ class ViewController: UIViewController {
             for item in json["results"][0].arrayValue {
                 //이거
                 print(json["results"][0].arrayValue)
-                let newYoutubeData = youtubeData(youtubeKEY: item["key"].stringValue)
-                
-                self.youtubeList.append(newYoutubeData)
+                self.youtubeList.append(item["key"].stringValue)
             }
             self.mainCollectionView.reloadData()
 
@@ -238,7 +237,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         cell.mainImageView.kf.setImage(with: urlPoster)
         UserDefaults.standard.set(tvDataList[indexPath.item].image, forKey: "image")
         
-        UserDefaults.standard.set(youtubeList[indexPath.item].youtubeKEY, forKey: "youtubeKEY")
+        UserDefaults.standard.set(youtubeList[indexPath.item], forKey: "youtubeKEY")
         
         
         cell.starRatePointLabel.text = tvDataList[indexPath.item].votecount
