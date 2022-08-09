@@ -1,6 +1,6 @@
 # MediaProject
 
-## CollectionView in TableView(TableView + CollectionView) (2022.08.0 added)
+## CollectionView in TableView(TableView + CollectionView) (2022.08.09 added)
 
 <img width="581" alt="스크린샷 2022-08-09 오후 8 56 43" src="https://user-images.githubusercontent.com/44957712/183641573-a02fd955-de71-4c13-8623-7d508940a4fd.png">
 
