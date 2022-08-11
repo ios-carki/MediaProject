@@ -7,12 +7,12 @@ import SwiftyJSON
 struct tvData {
     var image: String
     var backImage: String
-    var votecount: String
+    var votecount: Double
     var title: String
     var overview: String
     var id: Int
     
-    init(image: String, backImage: String, votecount: String, title: String, overview: String, id: Int) {
+    init(image: String, backImage: String, votecount: Double, title: String, overview: String, id: Int) {
         self.image = image
         self.backImage = backImage
         self.votecount = votecount
@@ -70,7 +70,7 @@ class ViewController: UIViewController {
                 print("JSON: \(json)")
                 
                 for item in json["results"].arrayValue {
-                    let newData = tvData(image: item["poster_path"].stringValue, backImage: item["backdrop_path"].stringValue, votecount: item["vote_average"].stringValue, title: item["name"].stringValue, overview: item["overview"].stringValue, id: item["id"].intValue)
+                    let newData = tvData(image: item["poster_path"].stringValue, backImage: item["backdrop_path"].stringValue, votecount: item["vote_average"].doubleValue, title: item["name"].stringValue, overview: item["overview"].stringValue, id: item["id"].intValue)
 
                     tvDataList.append(newData)
                 }
@@ -147,7 +147,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         UserDefaults.standard.set(tvDataList[indexPath.item].image, forKey: "image")
         print(UserDefaults.standard.string(forKey: "image"))
         
-        cell.starRatePointLabel.text = tvDataList[indexPath.item].votecount//String(format: "%.1f", tvDataList[indexPath.item].votecount)
+        cell.starRatePointLabel.text = String(format: "%.1f", tvDataList[indexPath.item].votecount)
         cell.mainActorLabel.text = tvDataList[indexPath.item].overview
         return cell
 
