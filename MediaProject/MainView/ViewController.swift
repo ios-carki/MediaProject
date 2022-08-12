@@ -12,6 +12,8 @@ struct tvData {
     var overview: String
     var id: Int
     var youtubekey: String
+//    var firstAirDate: String
+//    var genreIds: Int
     
     init(image: String, backImage: String, votecount: Double, title: String, overview: String, id: Int, youtubekey: String) {
         self.image = image
@@ -21,6 +23,8 @@ struct tvData {
         self.overview = overview
         self.id = id
         self.youtubekey = youtubekey
+//        self.firstAirDate = firstAirDate
+//        self.genreIds = genreIds
     }
 }
 
@@ -62,10 +66,11 @@ class ViewController: UIViewController {
     func layoutSetting() {
             let layout = UICollectionViewFlowLayout()
             let spacing : CGFloat = 30
+        let topSpacing: CGFloat = 4
             let layoutwidth = UIScreen.main.bounds.width - (spacing * 2)
-        layout.itemSize = CGSize(width: (layoutwidth), height: (layoutwidth / 2) * 3)
+        layout.itemSize = CGSize(width: (layoutwidth), height: (layoutwidth / 2) * 3.3)
             layout.scrollDirection = .vertical
-            layout.sectionInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
+            layout.sectionInset = UIEdgeInsets(top: topSpacing, left: spacing, bottom: spacing, right: spacing)
             layout.minimumLineSpacing = spacing
             layout.minimumInteritemSpacing = spacing
             mainCollectionView.collectionViewLayout = layout
@@ -206,7 +211,8 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainCollectionViewCell", for: indexPath) as! MainCollectionViewCell
-        cell.layer.borderWidth = 1
+//        cell.layer.borderWidth = 1
+//        cell.backgroundColor = .lightGray
         cell.layer.cornerRadius = 10
 //        viewShadow(viewName: cell)
         

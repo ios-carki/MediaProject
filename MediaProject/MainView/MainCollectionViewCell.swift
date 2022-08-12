@@ -12,6 +12,9 @@ import SwiftyJSON
 
 class MainCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var headerDateLabel: UILabel!
+    @IBOutlet weak var headerGenreLabel: UILabel!
+    
     @IBOutlet weak var youtubeLinkButton: UIButton!
     
     @IBOutlet weak var mainImageView: UIImageView!
@@ -35,6 +38,9 @@ class MainCollectionViewCell: UICollectionViewCell {
 
         let color = UIColor(red: r / 255, green: g / 255, blue: b / 255, alpha: 1)
         
+        headerDateLabel.text = "120120210210"
+        headerGenreLabel.text = "#crime"
+        headerGenreLabel.font = .boldSystemFont(ofSize: 32)
         
         
         starRateTextLabel.text = "평점"
