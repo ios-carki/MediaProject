@@ -98,7 +98,8 @@
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="plain"/>
                         <connections>
-                            <action selector="linkButtonClicked:" destination="-1" eventType="touchUpInside" id="XaH-k4-WdP"/>
+                            <action selector="teaserLinkButtonClicked:" destination="-1" eventType="touchUpInside" id="ZlL-ZL-pd9"/>
+                            <action selector="youtubeLinkButtonClicked:" destination="-1" eventType="touchUpInside" id="DdB-Vz-UX5"/>
                         </connections>
                     </button>
                 </subviews>
@@ -139,7 +140,7 @@
                 <outlet property="rightImage" destination="eUc-bM-WV4" id="SDO-hf-j0O"/>
                 <outlet property="starRatePointLabel" destination="xOz-YD-ESb" id="w1s-tV-hC4"/>
                 <outlet property="starRateTextLabel" destination="khA-tC-9d8" id="fYx-Nr-Dh3"/>
-                <outlet property="youtubeLinkButton" destination="sHg-DJ-Eo4" id="9Jc-ex-IMj"/>
+                <outlet property="youtubeLinkButton" destination="sHg-DJ-Eo4" id="Dmx-D3-Hpr"/>
             </connections>
             <point key="canvasLocation" x="-46.376811594202906" y="121.20535714285714"/>
         </collectionViewCell>

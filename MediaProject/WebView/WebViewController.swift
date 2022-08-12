@@ -15,16 +15,18 @@ class WebViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var webView: WKWebView!
     
-    var destinationURL: String = "https://www.youtube.com/watch?v=\(UserDefaults.standard.string(forKey: "youtubeKEY"))"
+    var destinationURL = URL(string: "https://www.youtube.com/watch?v=\( UserDefaults.standard.string(forKey: "youtubekey"))")
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        openWebPage(url: destinationURL)
+        
+        //print(destinationURL)
+        //openWebPage(url: destinationURL)
         
     }
-    
+
     func openWebPage(url: String) {
+        print(url)
         guard let url = URL(string: url) else {
             print("잘못된 URL 요청입니다.")
             return

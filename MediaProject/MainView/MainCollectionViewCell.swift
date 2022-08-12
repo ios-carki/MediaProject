@@ -7,6 +7,9 @@
 
 import UIKit
 
+import Alamofire
+import SwiftyJSON
+
 class MainCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var youtubeLinkButton: UIButton!
@@ -58,7 +61,6 @@ class MainCollectionViewCell: UICollectionViewCell {
         youtubeLinkButton.backgroundColor = .white
         youtubeLinkButton.layer.cornerRadius = 20
     }
-    
-    
+
     
 }
