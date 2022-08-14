@@ -19,6 +19,7 @@ enum Endpoint {
             return URL.makeEndPointString("trending/tv/week?api_key=\(APIKey.TMDB)")
         case .video:
             return URL.makeEndPointString("tv/\(tvID)/videos?api_key=\(APIKey.TMDB)")
+            
         }
     }
 }

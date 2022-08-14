@@ -52,6 +52,7 @@ class MainCollectionViewCell: UICollectionViewCell {
         mainTitleLabel.font = .boldSystemFont(ofSize: 20)
         mainActorLabel.font = .boldSystemFont(ofSize: 15)
         mainActorLabel.textColor = .lightGray
+        mainActorLabel.numberOfLines = 1
         boundaryView.layer.borderWidth = 1
         boundaryView.layer.borderColor = UIColor.black.cgColor
         rightButton.setTitle("자세히 보기", for: .normal)
