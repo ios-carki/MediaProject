@@ -7,11 +7,12 @@
 
 import Foundation
 
-
+//https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}
 
 enum Endpoint {
     case base
     case video
+//    case weather
     
     var requestURL: String {
         switch self {
@@ -19,6 +20,8 @@ enum Endpoint {
             return URL.makeEndPointString("trending/tv/week?api_key=\(APIKey.TMDB)")
         case .video:
             return URL.makeEndPointString("tv/\(tvID)/videos?api_key=\(APIKey.TMDB)")
+//        case .weather:
+//            return URL.makeWeatherEndPointString("lat={lat}&lon={lon}&appid=\(APIKey.OpenWeather)")
             
         }
     }
