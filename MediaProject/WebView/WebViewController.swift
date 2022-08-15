@@ -10,6 +10,7 @@ import WebKit
 
 import Alamofire
 import SwiftyJSON
+import SwiftUI
 
 struct videoData {
     var videokey: String
@@ -78,5 +79,7 @@ class WebViewController: UIViewController {
         }
         print(destinationURL)
     }
+    
+    
     
 }

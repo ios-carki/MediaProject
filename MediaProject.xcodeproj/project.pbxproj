@@ -27,6 +27,7 @@
 		C3DCBAB1289BF4B500989A4E /* MainCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3DCBAAF289BF4B500989A4E /* MainCollectionViewCell.xib */; };
 		C3DCBAB5289BF50800989A4E /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = C3DCBAB4289BF50800989A4E /* .gitignore */; };
 		C3DCBAB8289BF52F00989A4E /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DCBAB7289BF52F00989A4E /* APIKey.swift */; };
+		C3DE644528AA037700E14BF1 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DE644428AA037700E14BF1 /* MapViewController.swift */; };
 		C3E63BAD28A24BE000E07069 /* CardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3E63BAC28A24BE000E07069 /* CardView.xib */; };
 		C3E63BAF28A24BEF00E07069 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E63BAE28A24BEF00E07069 /* CardView.swift */; };
 		C3E63BB228A24F6100E07069 /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E63BB028A24F6100E07069 /* CardCollectionViewCell.swift */; };
@@ -55,6 +56,7 @@
 		C3DCBAAF289BF4B500989A4E /* MainCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainCollectionViewCell.xib; sourceTree = "<group>"; };
 		C3DCBAB4289BF50800989A4E /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		C3DCBAB7289BF52F00989A4E /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		C3DE644428AA037700E14BF1 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		C3E63BAC28A24BE000E07069 /* CardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardView.xib; sourceTree = "<group>"; };
 		C3E63BAE28A24BEF00E07069 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		C3E63BB028A24F6100E07069 /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 		C3DCBA98289BF3F700989A4E /* MediaProject */ = {
 			isa = PBXGroup;
 			children = (
+				C3DE644328AA036A00E14BF1 /* Map */,
 				C3E63BAB28A24BA500E07069 /* View */,
 				C39848CB28A192A400E3F094 /* Network */,
 				C39848C728A11A3900E3F094 /* WebView */,
@@ -157,6 +160,14 @@
 				C3DCBAB7289BF52F00989A4E /* APIKey.swift */,
 			);
 			path = Key;
+			sourceTree = "<group>";
+		};
+		C3DE644328AA036A00E14BF1 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				C3DE644428AA037700E14BF1 /* MapViewController.swift */,
+			);
+			path = Map;
 			sourceTree = "<group>";
 		};
 		C3E63BAB28A24BA500E07069 /* View */ = {
@@ -273,6 +284,7 @@
 				C3DCBAB0289BF4B500989A4E /* MainCollectionViewCell.swift in Sources */,
 				C39848D128A1949E00E3F094 /* Endpoint.swift in Sources */,
 				C357ED67289E74F600F4BD8F /* DetailsTableViewCell.swift in Sources */,
+				C3DE644528AA037700E14BF1 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
