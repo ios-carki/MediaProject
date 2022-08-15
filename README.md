@@ -1,5 +1,9 @@
 # MediaProject
 
+## WeatherView (2022.08.16 added)
+
+<img width="522" alt="스크린샷 2022-08-16 오전 5 09 20" src="https://user-images.githubusercontent.com/44957712/184710692-c16e0b0c-49bd-49e7-aa64-6c6fc5c892d0.png">
+
 ## MapView (2022.08.15 added) Liberation day in Korea 🇰🇷
 
 <img width="522" alt="스크린샷 2022-08-15 오후 7 50 24" src="https://user-images.githubusercontent.com/44957712/184622806-135e0691-7605-4b0c-a8fd-eefce777d630.png">
