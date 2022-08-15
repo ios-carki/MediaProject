@@ -1,5 +1,9 @@
 # MediaProject
 
+## MapView (2022.08.15 added) Liberation day in Korea 🇰🇷
+
+<img width="522" alt="스크린샷 2022-08-15 오후 7 50 24" src="https://user-images.githubusercontent.com/44957712/184622806-135e0691-7605-4b0c-a8fd-eefce777d630.png">
+
 ## CollectionView in TableView(TableView + CollectionView) (2022.08.09 added)
 
 <img width="581" alt="스크린샷 2022-08-09 오후 8 56 43" src="https://user-images.githubusercontent.com/44957712/183641573-a02fd955-de71-4c13-8623-7d508940a4fd.png">
