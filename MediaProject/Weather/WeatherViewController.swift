@@ -70,7 +70,7 @@ class WeatherViewController: UIViewController {
         headLabelName.text = nowDateFunc()
         
         bodyLabelName.textColor = .white
-        bodyLabelName.font = .systemFont(ofSize: 24)
+        bodyLabelName.font = .systemFont(ofSize: 18)
         
     }
     
@@ -176,28 +176,44 @@ extension WeatherViewController: CLLocationManagerDelegate {
                     self.mentLabel.text = " 오늘도 행복한 하루 보내세요 "
                 }
             }
+        }
             
-            let center = CLLocation(latitude: latitude, longitude: longitude)
+//            let center = CLLocation(latitude: latitude, longitude: longitude)
             
-            let geocoder = CLGeocoder()
-            let locale = Locale(identifier: "Ko-kr")
-            geocoder.reverseGeocodeLocation(center, preferredLocale: locale, completionHandler: {(placemarks, error) in
-                if let address: [CLPlacemark] = placemarks {
-                    if var name: String = address.last?.name{
-                        print(name)
-                        if name.contains("장지동") || name.contains("위례광장로") {
-                            name = "서울, 송파구"
-                        } else {
-                            name = "위치데이터 받아오지 못함"
+        locationManager.distanceFilter = kCLDistanceFilterNone
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+        
+        let geocoder = CLGeocoder()
+        let locale = Locale(identifier: "Ko-kr")
+        let location = self.locationManager.location
+        var locationData: [String] = []
+        
+            if location != nil {
+                geocoder.reverseGeocodeLocation(location!) { (placemarks, error) in
+                    if error != nil {
+                        return
+                    }
+                    if let placemark = placemarks?.first {
+                        var address = ""
+                        
+                        if let administrativeArea = placemark.administrativeArea {
+                            address = "\(address) \(administrativeArea) "
+                            self.locationLabel.text = address
                         }
-                        self.locationLabel.text = name
+                        if let locality = placemark.locality {
+                            address = "\(address) \(locality) "
+                            
+                        }
+                        if let thoroughfare = placemark.thoroughfare {
+                            address = "\(address) \(thoroughfare) "
+                            
+                        }
                     }
                 }
-            })
-        }
+            }
         
         locationManager.stopUpdatingLocation()
-//        locationRequest()
     }
     
     //위치 가져오기 실패
