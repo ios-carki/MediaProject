@@ -34,6 +34,8 @@ class ThirdViewController: UIViewController {
         
         navigationController?.pushViewController(vc, animated: true)//push 화면전환
         
+        UserDefaults.standard.set(true, forKey: "First")
+        
 //        self.present(nav, animated: false)
     }
     
