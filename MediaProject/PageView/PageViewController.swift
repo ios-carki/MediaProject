@@ -59,6 +59,7 @@ extension PageViewController: UIPageViewControllerDelegate, UIPageViewController
     }
     
     func presentationIndex(for pageViewController: UIPageViewController) -> Int {
+        //몇번째부터 보여질지 인덱스 설정 -> return = 0 으로 해도 됨(0번째 인덱스가 먼저 보여지는 것)
         guard let fist = viewControllers?.first, let index = pageViewControllerList.firstIndex(of: fist) else { return 0 }
         
         print("=====", index)
