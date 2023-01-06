@@ -1,5 +1,19 @@
 # MediaProject
 
+<img width="900" alt="스크린샷 2023-01-06 오후 9 13 03" src="https://user-images.githubusercontent.com/44957712/211010646-62687cd2-36fd-4f6d-b16f-500d12027111.png">
+
+# 🔨 Tech
+Architecture - MVC
+
+Framework - UIKit
+
+Library - SnapKit / Alamofire / Kingfisher
+
+# Refactor (2023.01.06)
+
+<img width="500" alt="스크린샷 2023-01-06 오후 9 23 30" src="https://user-images.githubusercontent.com/44957712/211012010-6f542e69-fbbc-4bbb-a49f-983a7f10f75a.png">
+
+
 ## PageViewController (2022.08.16 added)
 
 https://user-images.githubusercontent.com/44957712/184879144-0b94e97a-7542-4b77-b523-f61837dbbc2d.mov
